@@ -1,6 +1,6 @@
 require('.')(__dirname)
 
-// console.dir($dep)
+console.dir($dep)
 
 
 var debug = $dep.Debug('exportall')

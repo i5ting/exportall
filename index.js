@@ -9,7 +9,7 @@ var debug = require('debug')('exportall')
 module.exports = function (package_file) {
   debug(package_file + '/package.json')
   
-  var dependencies = require(package_file + '/package.json')['dependencies']
+  var dependencies = require(package_file.replace(/package\.json/g,'') + '/package.json')['dependencies']
   
   for (var module_name in dependencies) {
     _name = module_name.replace(/-/g, '_')
