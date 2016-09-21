@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "ava": "^0.15.2",
+    "codecov": "^1.0.1",
     "ghooks": "^1.2.4",
     "nyc": "^6.6.1",
     "standard": "^7.1.2"
