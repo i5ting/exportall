@@ -1,24 +1,24 @@
-global.$dep = {
-  
-}
+'use strict;'
 
-var path = require('path')
-var Inflector = require('inflected');
-var debug = require('debug')('exportall')
+const Inflector = require('inflected')
+const debug = require('debug')('exportall')
 
-module.exports = function (package_file) {
-  debug(package_file + '/package.json')
-  
-  var dependencies = require(package_file.replace(/package\.json/g,'') + '/package.json')['dependencies']
-  
-  for (var module_name in dependencies) {
-    _name = module_name.replace(/-/g, '_')
+/* global $dep */
+global.$dep = {}
+
+module.exports = function (packageFile) {
+  debug(packageFile + '/package.json')
+
+  let dependencies = require(packageFile.replace(/package\.json/g, '') + '/package.json')['dependencies']
+
+  for (let moduleName in dependencies) {
+    let _name = moduleName.replace(/-/g, '_')
     _name = Inflector.classify(_name)
-    
+
     debug(_name)
-    
-    $dep[_name] = require(module_name)
+
+    $dep[_name] = require(moduleName)
   }
-  
+
   return $dep
 }
