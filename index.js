@@ -1,4 +1,4 @@
-'use strict;'
+'use strict'
 
 const Inflector = require('inflected')
 const debug = require('debug')('exportall')
